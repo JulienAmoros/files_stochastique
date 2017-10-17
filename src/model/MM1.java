@@ -45,4 +45,5 @@ public class MM1{
     private float getWq(){
         return (this.getLambda()/(this.getMu()/(this.getMu()-this.getLambda())));
     }
+    private double getQi(float i){return Math.pow(ro,i)*(1-ro);}
 }
