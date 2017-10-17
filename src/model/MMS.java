@@ -38,5 +38,5 @@ public class MMS{
     private float getL(){return (this.getLambda()/(this.getMu()-this.getLambda()));}
     private float getLq(){return ((this.getLambda()*this.getLambda())/(this.getMu()-this.getLambda()));}
     private float getW(){return (1/(this.getMu()-this.getLambda()));}
-    private float getWq(){return (this.getLambda()/(this.getMu()(this.getMu()-this.getLambda()));}
+    private float getWq(){return (this.getLambda()/(this.getMu()*(this.getMu()-this.getLambda())));}
 }
