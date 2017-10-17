@@ -8,7 +8,7 @@ public class MMS{
     private float s; //Number of servers
 
     /** Constructor **/
-    public MM1(float lambda, float mu, float s) {
+    public MMS(float lambda, float mu, float s) {
         this.lambda = lambda;
         this.mu = mu;
         this.s = s;
@@ -32,9 +32,11 @@ public class MMS{
     }
 
     /** Function **/
-    private MAJRo(){this.getRo() = (this.getLambda()/this.getMu());}
-    private getL(){return (this.getLambda()/(this.getMu()-this.getLambda()));}
-    private getLq(){return ((this.getLambda()*this.getLambda())/(this.getMu()-this.getLambda()));}
-    private.getW(){return (1/(this.getMu()-this.getLambda()));}
-    private.getWq(){return (this.getLambda()/(this.getMu()(this.getMu()-this.getLambda()));}
+    private void MAJRo(){
+        ro = (this.getLambda()/this.getMu());
+    }
+    private float getL(){return (this.getLambda()/(this.getMu()-this.getLambda()));}
+    private float getLq(){return ((this.getLambda()*this.getLambda())/(this.getMu()-this.getLambda()));}
+    private float getW(){return (1/(this.getMu()-this.getLambda()));}
+    private float getWq(){return (this.getLambda()/(this.getMu()(this.getMu()-this.getLambda()));}
 }
