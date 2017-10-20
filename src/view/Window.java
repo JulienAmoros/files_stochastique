@@ -88,7 +88,7 @@ public class Window extends JFrame{
     }
 
     private void updateGeneralValues(){
-        System.out.println("General!");
+        System.out.println("General!"); //Call proper function in model
     }
 
     private void updateServerValue(){
