@@ -19,7 +19,7 @@ public class Window {
     private JTextField clients_max_field;
     private JRadioButton clientsRadioBtn;
     private JPanel resultPane;
-    private JTextField textField1;
+    private JTextField jInput;
     private JLabel qResult;
     private JPanel qResultPanel;
     private JPanel lResultPanel;
@@ -27,6 +27,12 @@ public class Window {
     private JPanel wResultPanel;
     private JPanel wqResultPanel;
     private JPanel tauResultPanel;
+    private JLabel lValue;
+    private JLabel lqvalue;
+    private JLabel wValue;
+    private JLabel wqValue;
+    private JTextField tInput;
+    private JLabel tauValue;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Window");
