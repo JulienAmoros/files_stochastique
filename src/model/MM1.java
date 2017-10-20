@@ -1,6 +1,6 @@
 package model;
 
-public class MM1{
+public class MM1 implements kendal{
 
     private float lambda;
     private float mu;
@@ -30,20 +30,31 @@ public class MM1{
     }
 
     /** Function **/
-    private void MAJRo(){
+    public void MAJRo(){
         ro = (this.getLambda()/this.getMu());
     }
-    private float getL(){
+
+    @Override
+    public double getQ0() {
+        return 1-ro;
+    }
+    @Override
+    public double getL(){
         return (this.getLambda()/(this.getMu()-this.getLambda()));
     }
-    private float getLq(){
+    @Override
+    public double getLq(){
         return ((this.getLambda()*this.getLambda())/(this.getMu()-this.getLambda()));
     }
-    private float getW(){
+    @Override
+    public double getW(){
         return (1/(this.getMu()-this.getLambda()));
     }
-    private float getWq(){
+    @Override
+    public double getWq(){
         return (this.getLambda()/(this.getMu()/(this.getMu()-this.getLambda())));
     }
-    private double getQi(float i){return Math.pow(ro,i)*(1-ro);}
+    @Override
+    public double getQi(int i){return Math.pow(ro,i)*(1-ro);}
+
 }

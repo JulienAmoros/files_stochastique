@@ -1,6 +1,6 @@
 package model;
 
-public class MM1K{
+public class MM1K implements kendal{
 
     private float lambda;
     private float mu;
@@ -33,18 +33,23 @@ public class MM1K{
     }
 
     /** Function **/
-    private void MAJRo(){
-        ro = (this.getLambda()/this.getMu());
-    }
+    @Override
+    public void MAJRo(){ro = (this.getLambda()/this.getMu());}
 
-    private double getQi(float i){
+    @Override
+    public double getQ0(){return 0;}
+
+    @Override
+    public double getQi(int i){
         if(getRo()==1){
             return (1/(getK()+1));
         }else{
             return ( (1-ro)*Math.pow(ro,i)/(1-(Math.pow(ro,k+1))) );
         }
     }
-    private double getL(){
+
+    @Override
+    public double getL(){
         if(ro==1){
             return k/2;
         }else{
@@ -53,7 +58,18 @@ public class MM1K{
             return numerator / denominator;
         }
     }
-    private double getLq(){
+    @Override
+    public double getLq(){
         return getL()-(1-getQi(0));
+    }
+
+    @Override
+    public double getW() {
+        return 0;
+    }
+
+    @Override
+    public double getWq() {
+        return 0;
     }
 }

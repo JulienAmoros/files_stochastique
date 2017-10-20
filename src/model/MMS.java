@@ -1,6 +1,6 @@
 package model;
 
-public class MMS{
+public class MMS implements kendal{
 
     private float lambda;
     private float mu;
@@ -39,12 +39,13 @@ public class MMS{
             return 1;
     }
 
-
-
-    private void MAJRo(){
+    @Override
+    public void MAJRo(){
         ro = (this.getLambda()/(s*this.getMu()));
     }
-    private double getQ0(){
+
+    @Override
+    public double getQ0(){
         double denominator=0;
         for(int i=0; i<s;i++){
             denominator += (Math.pow(ro*s,s)/i)+(Math.pow(ro*s,s)/(factorielleRecursive(s)*(1-ro)));
@@ -52,7 +53,8 @@ public class MMS{
         return 1/denominator;
     }
 
-    private double getQi(int i){
+    @Override
+    public double getQi(int i){
         if(i<1){
             return (Math.pow(s*ro,i)/factorielleRecursive(i))*getQ0();
         }else{
@@ -60,21 +62,23 @@ public class MMS{
         }
     }
 
-    private double getLq(){
+    @Override
+    public double getLq(){
         return getQ0()*(Math.pow(ro*s,ro)*ro)/(factorielleRecursive(s)*(Math.pow(1-ro,2)));
     }
 
-    private double getWq(){
+    @Override
+    public double getWq(){
         return getLq()/lambda;
     }
-    private double getW(){
+
+    @Override
+    public double getW(){
         return getWq()/(1/lambda);
     }
 
-    private double getL(){
+    @Override
+    public double getL(){
         return lambda/getW();
     }
-
-
-
 }
