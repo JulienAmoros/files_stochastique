@@ -5,31 +5,38 @@ public class MM1K implements kendal{
     private float lambda;
     private float mu;
     private float ro;
-    private float k;
+    private int k;
 
     /** Constructor **/
-    public MM1K(float lambda, float mu, float k) {
+    public MM1K(float lambda, float mu, int k) {
         this.lambda = lambda;
         this.mu = mu;
         this.ro = (lambda/mu);
-        this.k = this.k;
+        this.k = k;
     }
 
     /** Getter **/
-    private float getLambda() {return lambda;}
-    private float getMu() {return mu;}
+    public float getLambda() {return lambda;}
+    public float getMu() {return mu;}
     private float getRo() {return ro;}
     private float getK() {return k;}
 
 
     /** Setter **/
+    @Override
     public void setLambda(float lambda) {
         this.lambda = lambda;
         MAJRo();
     }
+
+    @Override
     public void setMu(float mu) {
         this.mu = mu;
         MAJRo();
+    }
+
+    public void setK(int k){
+        this.k = k;
     }
 
     /** Function **/
@@ -66,10 +73,13 @@ public class MM1K implements kendal{
     @Override
     public double getW() {
         return 0;
-    }
+    } //TODO
 
     @Override
     public double getWq() {
         return 0;
-    }
+    } //TODO
+
+    @Override
+    public double getTau(float t){return 0;} //TODO
 }

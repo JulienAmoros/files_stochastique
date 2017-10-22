@@ -16,19 +16,29 @@ public class MMS implements kendal{
     }
 
     /** Getter **/
-    private float getLambda() {return lambda;}
-    private float getMu() {return mu;}
+    @Override
+    public float getLambda() {return lambda;}
+    @Override
+    public float getMu() {return mu;}
+
     private float getRo() {return ro;}
 
 
     /** Setter **/
+    @Override
     public void setLambda(float lambda) {
         this.lambda = lambda;
         MAJRo();
     }
+
+    @Override
     public void setMu(float mu) {
         this.mu = mu;
         MAJRo();
+    }
+
+    public void setS(int s){
+        this.s = s;
     }
 
     /** Function **/
@@ -81,4 +91,7 @@ public class MMS implements kendal{
     public double getL(){
         return lambda/getW();
     }
+
+    @Override
+    public double getTau(float t){return 0;} //TODO
 }

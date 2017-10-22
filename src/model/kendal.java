@@ -1,11 +1,18 @@
 package model;
 
 public interface kendal {
-    public void MAJRo();
-    public double getQ0();
-    public double getL();
-    public double getLq();
-    public double getW();
-    public double getWq();
-    public double getQi(int i);
+     float getLambda();
+     float getMu();
+
+     void setLambda(float lambda);
+     void setMu(float mu);
+
+     void MAJRo();
+     double getQ0();
+     double getL();
+     double getLq();
+     double getW();
+     double getWq();
+     double getQi(int i);
+     double getTau(float t);
 }

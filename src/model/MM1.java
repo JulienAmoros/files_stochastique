@@ -14,16 +14,21 @@ public class MM1 implements kendal{
     }
 
     /** Getter **/
+    @Override
     public float getLambda() {return lambda;}
+    @Override
     public float getMu() {return mu;}
     public float getRo() {return ro;}
 
 
     /** Setter **/
+    @Override
     public void setLambda(float lambda) {
         this.lambda = lambda;
         MAJRo();
     }
+
+    @Override
     public void setMu(float mu) {
         this.mu = mu;
         MAJRo();
@@ -56,5 +61,7 @@ public class MM1 implements kendal{
     }
     @Override
     public double getQi(int i){return Math.pow(ro,i)*(1-ro);}
+    @Override
+    public double getTau(float t){return 0;} //TODO
 
 }

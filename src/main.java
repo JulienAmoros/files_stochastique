@@ -1,4 +1,3 @@
-import controller.MainController;
 import view.Window;
 
 /**
@@ -6,7 +5,6 @@ import view.Window;
  */
 public class main {
     public static void main(final String[] args) throws Exception {
-//        MainController controller = new MainController();
         Window win = new Window();
     }
 }
