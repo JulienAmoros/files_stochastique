@@ -35,6 +35,14 @@ public class MM1 implements kendal{
 
     /** Function **/
     @Override
+    public boolean isValid(){
+        if(getMu()>getLambda()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    @Override
     public void MAJRo(){
         ro = (this.getLambda()/this.getMu());
     }

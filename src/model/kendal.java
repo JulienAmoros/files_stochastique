@@ -16,4 +16,6 @@ public interface kendal {
      double getWq();
      double getQi(int i);
      double getTau(float t);
+
+     boolean isValid();
 }

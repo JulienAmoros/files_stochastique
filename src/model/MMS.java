@@ -43,6 +43,14 @@ public class MMS implements kendal{
     }
 
     /** Function **/
+    @Override
+    public boolean isValid(){
+        if((getLambda()<(getS()*getMu()))){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public static int factorielleRecursive(int n) {
         if (n>1)
             return n*factorielleRecursive(n-1);
@@ -59,9 +67,9 @@ public class MMS implements kendal{
     public double getQ0(){
         double denominator=0;
         for(int i=0; i<s;i++){
-            denominator += (Math.pow(ro*s,i)/factorielleRecursive(i))+(Math.pow(ro*s,s)/(factorielleRecursive(s)*(1-ro)));
+            denominator += (Math.pow(ro*s,i)/factorielleRecursive(i));
         }
-        return 1/denominator;
+        return 1/(denominator+(Math.pow(ro*s,s)/(factorielleRecursive(s)*(1-ro))));
     }
 
     @Override
