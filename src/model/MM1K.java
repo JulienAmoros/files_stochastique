@@ -21,14 +21,12 @@ public class MM1K implements kendal{
     private float getRo() {return ro;}
     private float getK() {return k;}
 
-
     /** Setter **/
     @Override
     public void setLambda(float lambda) {
         this.lambda = lambda;
         MAJRo();
     }
-
     @Override
     public void setMu(float mu) {
         this.mu = mu;

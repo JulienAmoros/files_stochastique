@@ -30,7 +30,6 @@ public class MMS implements kendal{
         this.lambda = lambda;
         MAJRo();
     }
-
     @Override
     public void setMu(float mu) {
         this.mu = mu;
