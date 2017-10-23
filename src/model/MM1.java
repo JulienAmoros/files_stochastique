@@ -49,7 +49,8 @@ public class MM1 implements kendal{
     }
     @Override
     public double getLq(){
-        return ((this.getLambda()*this.getLambda())/(this.getMu()-this.getLambda()));
+        return (
+                (this.getLambda()*this.getLambda())/(this.getMu()*(this.getMu()-this.getLambda())));
     }
     @Override
     public double getW(){

@@ -3,6 +3,7 @@ package model;
 public interface kendal {
      float getLambda();
      float getMu();
+     float getRo();
 
      void setLambda(float lambda);
      void setMu(float mu);

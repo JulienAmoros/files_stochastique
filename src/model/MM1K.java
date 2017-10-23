@@ -18,8 +18,8 @@ public class MM1K implements kendal{
     /** Getter **/
     public float getLambda() {return lambda;}
     public float getMu() {return mu;}
-    private float getRo() {return ro;}
-    private float getK() {return k;}
+    public float getRo() {return ro;}
+    public float getK() {return k;}
 
     /** Setter **/
     @Override
@@ -79,5 +79,5 @@ public class MM1K implements kendal{
     } //TODO
 
     @Override
-    public double getTau(float t){return 0;} //TODO
+    public double getTau(float t){return Math.exp((-getMu())*(1-getRo())*t);}
 }

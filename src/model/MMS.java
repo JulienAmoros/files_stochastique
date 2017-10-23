@@ -5,7 +5,7 @@ public class MMS implements kendal{
     private float lambda;
     private float mu;
     private float ro;
-    private int s; //Number of servers
+    private int s;
 
     /** Constructor **/
     public MMS(float lambda, float mu, int s) {
@@ -20,8 +20,10 @@ public class MMS implements kendal{
     public float getLambda() {return lambda;}
     @Override
     public float getMu() {return mu;}
+    @Override
+    public float getRo() {return ro;}
 
-    private float getRo() {return ro;}
+    public float getS() {return s;}
 
 
     /** Setter **/
@@ -78,19 +80,21 @@ public class MMS implements kendal{
 
     @Override
     public double getWq(){
-        return getLq()/lambda;
+        return getLq()/getLambda();
     }
 
     @Override
     public double getW(){
-        return getWq()/(1/lambda);
+        return getWq()/(1/getLambda());
     }
 
     @Override
     public double getL(){
-        return lambda/getW();
+        return getLambda()/getW();
     }
 
     @Override
-    public double getTau(float t){return 0;} //TODO
+    public double getTau(float t){
+        return (getQ0()*(Math.pow(getRo()*getS(),getS())));
+    }
 }
