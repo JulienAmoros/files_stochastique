@@ -12,7 +12,7 @@ public class MMS implements kendal{
         this.lambda = lambda;
         this.mu = mu;
         this.s = s;
-        this.ro = (lambda/s*mu);
+        this.ro = (lambda/(s*mu));
     }
 
     /** Getter **/
@@ -52,30 +52,29 @@ public class MMS implements kendal{
 
     @Override
     public void MAJRo(){
-        ro = (this.getLambda()/(s*this.getMu()));
+        ro = (this.getLambda()/(getS()*getMu()));
     }
 
     @Override
     public double getQ0(){
         double denominator=0;
         for(int i=0; i<s;i++){
-            denominator += (Math.pow(ro*s,s)/i)+(Math.pow(ro*s,s)/(factorielleRecursive(s)*(1-ro)));
+            denominator += (Math.pow(ro*s,i)/factorielleRecursive(i))+(Math.pow(ro*s,s)/(factorielleRecursive(s)*(1-ro)));
         }
         return 1/denominator;
     }
 
     @Override
     public double getQi(int i){
-        if(i<1){
+        if(i<getS()){
             return (Math.pow(s*ro,i)/factorielleRecursive(i))*getQ0();
         }else{
-            return (Math.pow(s,s)*Math.pow(ro,i))/factorielleRecursive(s);
+            return ((Math.pow(s,s)*Math.pow(ro,i))/factorielleRecursive(s))*getQ0();
         }
     }
-
     @Override
     public double getLq(){
-        return getQ0()*(Math.pow(ro*s,ro)*ro)/(factorielleRecursive(s)*(Math.pow(1-ro,2)));
+        return getQ0()*((Math.pow(ro*s,getS())*ro)/(factorielleRecursive(s)*(Math.pow(1-ro,2))));
     }
 
     @Override
@@ -85,12 +84,12 @@ public class MMS implements kendal{
 
     @Override
     public double getW(){
-        return getWq()/(1/getLambda());
+        return getWq()+(1/getMu());
     }
 
     @Override
     public double getL(){
-        return getLambda()/getW();
+        return getLambda()*getW();
     }
 
     @Override
