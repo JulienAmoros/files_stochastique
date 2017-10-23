@@ -38,7 +38,6 @@ public class MM1 implements kendal{
     public void MAJRo(){
         ro = (this.getLambda()/this.getMu());
     }
-
     @Override
     public double getQ0() {
         return 1-getRo();

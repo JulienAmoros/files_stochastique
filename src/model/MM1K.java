@@ -42,7 +42,15 @@ public class MM1K implements kendal{
     public void MAJRo(){ro = (this.getLambda()/this.getMu());}
 
     @Override
-    public double getQ0(){return 0;}
+    public double getQ0(){
+        if(ro==1){
+            return 1/(getK()+1);
+        }else{
+            double numerator = (1-getRo());
+            double denominator = (1-Math.pow(getRo(),getK()+1));
+            return numerator / denominator;
+        }
+    }
 
     @Override
     public double getQi(int i){
@@ -70,13 +78,13 @@ public class MM1K implements kendal{
 
     @Override
     public double getW() {
-        return 0;
-    } //TODO
+        return getL()/getLambda();
+    }
 
     @Override
     public double getWq() {
-        return 0;
-    } //TODO
+        return getLq()/getLambda();
+    }
 
     @Override
     public double getTau(float t){return Math.exp((-getMu())*(1-getRo())*t);}
