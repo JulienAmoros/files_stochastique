@@ -213,11 +213,23 @@ public class Window extends JFrame{
         try{
             float lambda = Float.parseFloat(lambda_field.getText());
             float mu = Float.parseFloat(mu_field.getText());
-            if(!file.isValid()) return true;
+            if(classicRadioButton.isSelected() && MM1.isValid(mu, lambda))
+                return true;
+            if(clientsRadioBtn.isSelected() && MM1K.isValid())
+                return true;
+            int s =  Integer.parseInt(serveur_field.getText());
+            if(serverRadioBtn.isSelected() && MMS.isValid(lambda, mu, s))
+                return true;
+
+            qResult.setText("undefined");
+            lValue.setText("undefined");
+            lqvalue.setText("undefined");
+            wValue.setText("undefined");
+            wqValue.setText("undefined");
+            tauValue.setText("undefined");
+            return false;
         }
-        catch (Exception exc){}
-        finally
-        {
+        catch (Exception exc){
             qResult.setText("undefined");
             lValue.setText("undefined");
             lqvalue.setText("undefined");
