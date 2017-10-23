@@ -118,7 +118,7 @@ public class Window extends JFrame{
     }
 
     private void updateGeneralValues(){
-        if(!lambda_field.getText().equals("") && !mu_field.getText().equals("")){
+        if(lambdaMuValid()){
             if(classicRadioButton.isSelected()) setMM1();
             if(clientsRadioBtn.isSelected()) setMM1K();
             if(serverRadioBtn.isSelected()) setMMS();
@@ -127,14 +127,14 @@ public class Window extends JFrame{
     }
 
     private void updateServerValue(){
-        if(serverRadioBtn.isSelected()){
+        if(serverRadioBtn.isSelected() && lambdaMuValid()){
             setMMS();
             printResults();
         }
     }
 
     private void updateKlientValue(){
-        if(clientsRadioBtn.isSelected()){
+        if(clientsRadioBtn.isSelected() && lambdaMuValid()){
             setMM1K();
             printResults();
         }
@@ -206,5 +206,25 @@ public class Window extends JFrame{
         wValue.setText("" + file.getW());
         wqValue.setText("" + file.getWq());
         updateTauValue();
+        lambdaMuValid();
+    }
+
+    private boolean lambdaMuValid(){
+        try{
+            float lambda = Float.parseFloat(lambda_field.getText());
+            float mu = Float.parseFloat(mu_field.getText());
+            if(!file.isValid()) return true;
+        }
+        catch (Exception exc){}
+        finally
+        {
+            qResult.setText("undefined");
+            lValue.setText("undefined");
+            lqvalue.setText("undefined");
+            wValue.setText("undefined");
+            wqValue.setText("undefined");
+            tauValue.setText("undefined");
+            return false;
+        }
     }
 }
