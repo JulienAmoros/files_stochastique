@@ -41,7 +41,7 @@ public class MM1 implements kendal{
 
     @Override
     public double getQ0() {
-        return 1-ro;
+        return 1-getRo();
     }
     @Override
     public double getL(){
@@ -58,10 +58,10 @@ public class MM1 implements kendal{
     }
     @Override
     public double getWq(){
-        return (this.getLambda()/(this.getMu()/(this.getMu()-this.getLambda())));
+        return (this.getLambda()/(this.getMu()*(this.getMu()-this.getLambda())));
     }
     @Override
-    public double getQi(int i){return Math.pow(ro,i)*(1-ro);}
+    public double getQi(int i){return Math.pow(getRo(),i)*(1-getRo());}
     @Override
     public double getTau(float t){
         return Math.exp((-getMu())*(1-getRo())*t);
