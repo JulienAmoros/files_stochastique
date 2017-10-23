@@ -43,9 +43,8 @@ public class MMS implements kendal{
     }
 
     /** Function **/
-    @Override
-    public boolean isValid(){
-        return (getLambda()<(getS()*getMu()));
+    public static boolean isValid(float lambda, float mu, int s){
+        return (lambda<(s*mu));
     }
     public static int factorielleRecursive(int n) {
         if (n>1)

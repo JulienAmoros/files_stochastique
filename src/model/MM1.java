@@ -34,9 +34,8 @@ public class MM1 implements kendal{
     }
 
     /** Function **/
-    @Override
-    public boolean isValid(){
-        return getMu()>getLambda();
+    public static boolean isValid(float mu,float lambda){
+        return mu>lambda;
     }
     @Override
     public void MAJRo(){

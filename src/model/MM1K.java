@@ -38,8 +38,7 @@ public class MM1K implements kendal{
     }
 
     /** Function **/
-    @Override
-    public boolean isValid(){
+    public static boolean isValid(){
         return true;
     }
     @Override
