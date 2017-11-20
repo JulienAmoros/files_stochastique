@@ -8,6 +8,7 @@ import model.kendal;
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,7 +19,6 @@ public class Window extends JFrame{
     private JPanel mainPane;
     private JPanel inputPane;
     private JPanel serveurPanel;
-    private JPanel clientsPanel;
     private JPanel arrivePanel;
     private JPanel departPanel;
     private JTextField lambda_field;
@@ -43,6 +43,8 @@ public class Window extends JFrame{
     private JTextField tInput;
     private JLabel tauValue;
     private JRadioButton classicRadioButton;
+    private JLabel informations;
+    private JLabel informationMessage;
     private ButtonGroup btnGrp;
 
     private Class selected_mode;
@@ -64,6 +66,7 @@ public class Window extends JFrame{
         serveur_field.setEditable(false);
         clients_max_field.setEditable(false);
         clients_max_field.setText("Infini");
+        informationMessage.setForeground(Color.RED);
 
         mu_field.addCaretListener(new CaretListener() {
             @Override
@@ -229,15 +232,30 @@ public class Window extends JFrame{
 
     private boolean lambdaMuValid(){
         try{
+
             float lambda = Float.parseFloat(lambda_field.getText());
             float mu = Float.parseFloat(mu_field.getText());
-            if(classicRadioButton.isSelected() && MM1.isValid(mu, lambda))
+
+
+            if(classicRadioButton.isSelected() && MM1.isValid(mu, lambda)){
+                informationMessage.setText("");
                 return true;
-            if(clientsRadioBtn.isSelected() && MM1K.isValid())
+            }else{
+                informationMessage.setText("Attention lambda est supérieur à mu");
+            }
+            if(clientsRadioBtn.isSelected() && MM1K.isValid()){
+                informationMessage.setText("");
                 return true;
+            }else{
+                informationMessage.setText("Attention lambda est supérieur à mu");
+            }
             int s =  Integer.parseInt(serveur_field.getText());
-            if(serverRadioBtn.isSelected() && MMS.isValid(lambda, mu, s))
+            if(serverRadioBtn.isSelected() && MMS.isValid(lambda, mu, s)){
+                informationMessage.setText("");
                 return true;
+            }else{
+                informationMessage.setText("Attention lambda est supérieur à mu");
+            }
 
             qResult.setText("undefined");
             lValue.setText("undefined");
