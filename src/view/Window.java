@@ -61,6 +61,10 @@ public class Window extends JFrame{
 
         classicRadioButton.setSelected(true);
 
+        serveur_field.setEditable(false);
+        clients_max_field.setEditable(false);
+        clients_max_field.setText("Infini");
+
         mu_field.addCaretListener(new CaretListener() {
             @Override
             public void caretUpdate(CaretEvent e) {
@@ -119,7 +123,9 @@ public class Window extends JFrame{
 
     private void updateGeneralValues(){
         if(lambdaMuValid()){
-            if(classicRadioButton.isSelected()) setMM1();
+            if(classicRadioButton.isSelected()){
+                setMM1();
+            }
             if(clientsRadioBtn.isSelected()) setMM1K();
             if(serverRadioBtn.isSelected()) setMMS();
             printResults();
@@ -157,6 +163,10 @@ public class Window extends JFrame{
     }
 
     private void setMM1(){
+        serveur_field.setEditable(false);
+        serveur_field.setText("");
+        clients_max_field.setEditable(false);
+        clients_max_field.setText("Infini");
         try{
             float lambda = Float.parseFloat(lambda_field.getText());
             float mu = Float.parseFloat(mu_field.getText());
@@ -169,6 +179,10 @@ public class Window extends JFrame{
     }
 
     private void setMM1K(){
+        serveur_field.setEditable(false);
+        serveur_field.setText("1");
+        clients_max_field.setEditable(true);
+        clients_max_field.setText("");
         try{
             float lambda = Float.parseFloat(lambda_field.getText());
             float mu = Float.parseFloat(mu_field.getText());
@@ -182,6 +196,10 @@ public class Window extends JFrame{
     }
 
     private void setMMS(){
+        serveur_field.setEditable(true);
+        serveur_field.setText("");
+        clients_max_field.setEditable(false);
+        clients_max_field.setText("Infini");
         try{
             float lambda = Float.parseFloat(lambda_field.getText());
             float mu = Float.parseFloat(mu_field.getText());
